@@ -8,17 +8,17 @@ interface AuthenticationUseCaseRequest {
   password: string
 }
 
-interface AuthenticateServiceResponse {
+interface AuthenticateUseCaseResponse {
   user: User
 }
 
-export class AuthenticateService {
+export class AuthenticateUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({
     email,
     password,
-  }: AuthenticationUseCaseRequest): Promise<AuthenticateServiceResponse> {
+  }: AuthenticationUseCaseRequest): Promise<AuthenticateUseCaseResponse> {
     // Search for user in database for email
     // Compare if the password saved in the database matches the parameter password
 
