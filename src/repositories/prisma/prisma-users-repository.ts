@@ -1,8 +1,22 @@
 import { prisma } from '@/lib/prisma'
 import { Prisma } from '@prisma/client'
-import { UsersRepository } from './users-repositorie'
+import { UsersRepository } from './users-repository'
 
 export class PrismaUsersRepository implements UsersRepository {
+  async findById(id: string) {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    if (!user) {
+      return null
+    }
+
+    return user
+  }
+
   async findByEmail(email: string) {
     const user = await prisma.user.findUnique({
       // Search for users with the same email

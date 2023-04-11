@@ -1,4 +1,4 @@
-import { UsersRepository } from '@/repositories/prisma/users-repositorie'
+import { UsersRepository } from '@/repositories/prisma/users-repository'
 import { User } from '@prisma/client'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
@@ -14,7 +14,7 @@ export class GetUserProfileUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({
-    userId
+    userId,
   }: GetUserProfileUseCaseRequest): Promise<GetUserProfileUseCaseResponse> {
     // Search for user in database for email
     // Compare if the password saved in the database matches the parameter password
