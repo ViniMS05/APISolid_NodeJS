@@ -14,13 +14,10 @@ export class SearchGymsUseCase {
   constructor(private gymsRepository: GymsRepository) {}
 
   async execute({
-  query,
-  page
+    query,
+    page,
   }: SearchGymsUseCaseRequest): Promise<SearchGymsUseCaseResponse> {
-    const gyms = await this.gymsRepository.SearchMany(
-      query,
-      page
-    )
+    const gyms = await this.gymsRepository.SearchMany(query, page)
 
     return { gyms }
   }
