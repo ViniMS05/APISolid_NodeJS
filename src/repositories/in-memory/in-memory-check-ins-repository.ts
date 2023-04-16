@@ -7,9 +7,9 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
   public items: CheckIn[] = []
 
   async findById(id: string) {
-    const checkIn = this.items.find((item) => item.id === id);
-      
-    if(!checkIn){
+    const checkIn = this.items.find((item) => item.id === id)
+
+    if (!checkIn) {
       return null // Find returns undefined, but prisma only accepts null value
     }
 
@@ -60,9 +60,9 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
   }
 
   async save(checkIn: CheckIn) {
-    const checkInIndex = this.items.findIndex(item => item.id === checkIn.id)
+    const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id)
 
-    if (checkInIndex >= 0 ){
+    if (checkInIndex >= 0) {
       this.items[checkInIndex] = checkIn
     }
 
