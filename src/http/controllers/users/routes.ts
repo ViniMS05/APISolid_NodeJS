@@ -3,7 +3,7 @@ import { FastifyInstance } from 'fastify'
 import { verifyJWT } from '@/http/middlewares/verify-jwt'
 
 import { register } from './register.controller'
-import { authenticate } from './athenticate.controller'
+import { authenticate } from './authenticate.controller'
 import { profile } from './profile.controller'
 
 export async function usersRoutes(app: FastifyInstance) {
